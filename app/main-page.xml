@@ -1,7 +1,14 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
-  <StackLayout>
-    <Label text="Tap the button" class="title"/>
-    <Button text="TAP" tap="{{ onTap }}" />
-    <Label text="{{ message }}" class="message" textWrap="true"/>
-  </StackLayout>
+	<StackLayout>
+		<ListView items="{{ news }}" itemTap="openArticle" loadMoreItems="loadMore">
+			<ListView.itemTemplate>
+				<StackLayout orientation="horizontal">
+					<Image src="{{ thumb }}" horizontalAlignment="left"
+						   strech="none" width="100" height="75"
+						   margin="10"/>
+					<Label text="{{ title }}" textWrap="true"/>
+				</StackLayout>
+			</ListView.itemTemplate>
+		</ListView>
+	</StackLayout>
 </Page>
